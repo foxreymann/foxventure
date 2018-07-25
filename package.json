@@ -1,0 +1,33 @@
+{
+  "name": "foxventure",
+  "version": "0.0.1",
+  "description": "Object Oriented and Tested Node.js tutorial on example of Text Based Adventure Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foxreymann/foxventure.git"
+  },
+  "keywords": [
+    "node.js",
+    "object",
+    "oriented",
+    "rpg",
+    "text",
+    "based",
+    "game",
+    "tdd",
+    "test",
+    "driven",
+    "development",
+    "oo"
+  ],
+  "author": "Fox Reymann Ltd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/foxreymann/foxventure/issues"
+  },
+  "homepage": "https://github.com/foxreymann/foxventure#readme"
+}
