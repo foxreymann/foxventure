@@ -1,1 +1,3 @@
-config.get(room.0.1)
+const world = require('./worlds/default')
+
+console.log(world)
