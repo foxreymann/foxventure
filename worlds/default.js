@@ -24,5 +24,41 @@ rooms[] = {
   }
 }
 
+rooms[] = {
+  name: "room x0 y2",
+  desc: 'description for room x0 y2',
+  location: {
+    x: 0,
+    y: 2
+  }
+}
+
+rooms[] = {
+  name: "room x0 y3",
+  desc: 'description for room x0 y3',
+  location: {
+    x: 0,
+    y: 3
+  }
+}
+
+rooms[] = {
+  name: "room x1 y0",
+  desc: 'description for room x1 y0',
+  location: {
+    x: 1,
+    y: 0
+  }
+}
+
+rooms[] = {
+  name: "room x-1 y0",
+  desc: 'description for room x-1 y0',
+  location: {
+    x: -1,
+    y: 0
+  }
+}
+
 
 module.exports = rooms
