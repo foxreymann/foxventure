@@ -1,5 +1,5 @@
 const world = require('./worlds/default')
-const Game = require('./gmae')
+const Game = require('./game')
 
 console.log(world)
 
