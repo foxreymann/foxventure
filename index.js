@@ -3,14 +3,19 @@ const Game = require('./game')
 
 console.log(world)
 
-const quit = false
+let quit = false
 
 // init the game state
-let State = Game.initialState(world)
+const State = Game.initialState(world)
+
+console.log(State)
 
 // print initial state
 
 while (!quit) {
   // wait for user input
-  quit = true
+
+  // process user input
+
+  // print state
 }
