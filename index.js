@@ -1,21 +1,13 @@
 const world = require('./worlds/default')
-const Game = require('./game')
+const game = require('./game')
+const print = require('./print').cli
 
 console.log(world)
 
-let quit = false
-
 // init the game state
-const State = Game.initialState(world)
+const state = game.initialState(world)
 
-console.log(State)
+console.log(state)
 
-// print initial state
+game.loop(state, print)
 
-while (!quit) {
-  // wait for user input
-
-  // process user input
-
-  // print state
-}
