@@ -10,12 +10,16 @@ const loop = (state, print) => {
   // print state
   print.printState(state)
 
-  // ask initial question
+  // generate options
+
+  // print options
 
   // wait for user input
 
   // process user input
-  // loop(state, print)
+
+  const nextState = state
+  // loop(nextState, print)
 }
 
 module.exports = { initialState, loop }

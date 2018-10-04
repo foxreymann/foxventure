@@ -10,4 +10,3 @@ const state = game.initialState(world)
 console.log(state)
 
 game.loop(state, print)
-
