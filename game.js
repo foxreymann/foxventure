@@ -14,22 +14,22 @@ const SOUTH = { x: 0, y: 1 }
 const EAST  = { x: 1, y: 0 }
 const WEST  = { x:-1, y: 0 }
 
-const quit = () => {
-  process.exit()
-}
-
 const generateOptions = state => {
   const options = [
     {
       key: 'q',
       desc: 'Quit',
-      fun: 'quit'
+      action: 'quit'
     }
   ]
   return options
 }
 
 const loop = (state, print) => {
+
+const quit = () => {
+  process.exit()
+}
   // print state
   print.printState(state)
 
@@ -47,7 +47,11 @@ const loop = (state, print) => {
     try {
       key = key.name.toLowerCase()
     } catch (err) {}
-console.log(key)
+    options.map(o => {
+      if(key === o.key) {
+        quit()
+      }
+    })
   });
 
   // process user input
