@@ -1,3 +1,5 @@
+const readline = require('readline');
+
 const initialState = world => ({
   location: {
     x: 0,
@@ -11,6 +13,10 @@ const NORTH = { x: 0, y:-1 }
 const SOUTH = { x: 0, y: 1 }
 const EAST  = { x: 1, y: 0 }
 const WEST  = { x:-1, y: 0 }
+
+const quit = () => {
+  process.exit()
+}
 
 const generateOptions = state => {
   const options = [
@@ -34,6 +40,15 @@ const loop = (state, print) => {
   print.printOptions(options)
 
   // wait for user input
+  readline.emitKeypressEvents(process.stdin);
+  process.stdin.setRawMode(true);
+  process.stdin.on('keypress', (str, key) => {
+    if (key.ctrl && key.name === 'c') process.exit()
+    try {
+      key = key.name.toLowerCase()
+    } catch (err) {}
+console.log(key)
+  });
 
   // process user input
 
