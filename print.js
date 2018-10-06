@@ -1,9 +1,13 @@
 const cli = {}
 
 cli.printState = state => {
-  console.log(state.room.name)
-  console.log('-'.repeat(state.room.name.length))
-  console.log(state.room.desc)
+  cli.printRoom(state.room)
+}
+
+cli.printRoom = room => {
+  console.log(room.name)
+  console.log('-'.repeat(room.name.length))
+  console.log(room.desc)
   console.log('\n')
 }
 
