@@ -25,11 +25,11 @@ const generateOptions = state => {
   return options
 }
 
-const loop = (state, print) => {
-
 const quit = () => {
   process.exit()
 }
+
+const loop = (state, print) => {
   // print state
   print.printState(state)
 
@@ -43,6 +43,7 @@ const quit = () => {
   readline.emitKeypressEvents(process.stdin);
   process.stdin.setRawMode(true);
   process.stdin.on('keypress', (str, key) => {
+    // process user input
     if (key.ctrl && key.name === 'c') process.exit()
     try {
       key = key.name.toLowerCase()
@@ -52,9 +53,8 @@ const quit = () => {
         quit()
       }
     })
-  });
+  })
 
-  // process user input
 
   const nextState = state
   // loop(nextState, print)
