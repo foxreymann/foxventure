@@ -25,8 +25,17 @@ const generateOptions = state => {
   return options
 }
 
-const quit = () => {
-  process.exit()
+const actions = {
+  quit: () => {
+    process.exit()
+  }
+}
+
+
+
+const runAction = option => {
+console.log(option.action)
+console.log(quit)
 }
 
 const loop = (state, print) => {
@@ -50,7 +59,7 @@ const loop = (state, print) => {
     } catch (err) {}
     options.map(o => {
       if(key === o.key) {
-        quit()
+        actions[o.action]()
       }
     })
   })
