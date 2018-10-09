@@ -5,7 +5,8 @@ const initialState = world => ({
     x: 0,
     y: 0
   },
-  room: world.rooms.find(room => 0 === room.location.x && 0 === room.location.y)
+  room: world.rooms.find(room => 0 === room.location.x && 0 === room.location.y),
+  world: world
 })
 
 // Constants
@@ -48,11 +49,13 @@ const generateOptions = state => {
 
   // map moves and add if available
   moves.map(move => {
-console.log(move)
-    const locationToCheck = {}
-    locationToCheck.x = state.location.x + move.x
-console.log(locationToCheck)
-
+    const locAfterMove = {
+      x: state.location.x + move.x,
+      y: state.location.y + move.y
+    }
+    // is there a room at locAfterMove
+    const roomAfterMove = state.world.rooms.filter(room => room.location.x === locAfterMove.x && room.location.y === locAfterMove.y)
+console.log(roomAfterMove)
   })
 
   return options
