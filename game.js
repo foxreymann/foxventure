@@ -14,6 +14,29 @@ const SOUTH = { x: 0, y: 1 }
 const EAST  = { x: 1, y: 0 }
 const WEST  = { x:-1, y: 0 }
 
+const moves = [
+  {
+    name: 'North',
+    x: 0,
+    y: 1
+  },
+  {
+    name: 'South',
+    x: 0,
+    y: -1
+  },
+  {
+    name: 'East',
+    x: 1,
+    y: 0
+  },
+  {
+    name: 'West',
+    x: -1,
+    y: 0
+  }
+]
+
 const generateOptions = state => {
   const options = [
     {
@@ -22,6 +45,9 @@ const generateOptions = state => {
       action: 'quit'
     }
   ]
+
+  // map moves and add if available
+
   return options
 }
 
@@ -29,13 +55,6 @@ const actions = {
   quit: () => {
     process.exit()
   }
-}
-
-
-
-const runAction = option => {
-console.log(option.action)
-console.log(quit)
 }
 
 const loop = (state, print) => {
@@ -59,14 +78,10 @@ const loop = (state, print) => {
     } catch (err) {}
     options.map(o => {
       if(key === o.key) {
-        actions[o.action]()
+        actions[o.action](state)
       }
     })
   })
-
-
-  const nextState = state
-  // loop(nextState, print)
 }
 
 module.exports = { initialState, loop }
