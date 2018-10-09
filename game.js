@@ -47,6 +47,13 @@ const generateOptions = state => {
   ]
 
   // map moves and add if available
+  moves.map(move => {
+console.log(move)
+    const locationToCheck = {}
+    locationToCheck.x = state.location.x + move.x
+console.log(locationToCheck)
+
+  })
 
   return options
 }
