@@ -109,7 +109,7 @@ const loop = (state, print) => {
     } catch (err) {}
     options.map(o => {
       if(key === o.key) {
-        o.action(state)
+        o.action(state, o.loc)
       }
     })
   })
