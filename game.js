@@ -62,14 +62,12 @@ const generateOptions = state => {
 
   // map moves and add if available
   moves.map(move => {
-console.log(move)
     const locAfterMove = {
       x: state.location.x + move.x,
       y: state.location.y + move.y
     }
     // is there a room at locAfterMove
     let roomAfterMove = state.world.rooms.filter(room => room.location.x === locAfterMove.x && room.location.y === locAfterMove.y)
-console.log(roomAfterMove)
     if(roomAfterMove.length) {
       roomAfterMove = roomAfterMove[0]
       // add move
@@ -81,7 +79,6 @@ console.log(roomAfterMove)
       })
     }
   })
-console.log(options)
   return options
 }
 
