@@ -113,18 +113,17 @@ const loop = (state, print) => {
     options.map(o => {
       if(key === o.key) {
         myState = o.action(myState, o.loc)
-  // print state
-  print.printState(myState)
+        // print state
+        print.printState(myState)
 
-  // generate options
-  options = generateOptions(myState)
+        // generate options
+        options = generateOptions(myState)
 
-  // print options
-  print.printOptions(options)
+        // print options
+        print.printOptions(options)
       }
     })
   })
-
 }
 
 module.exports = { initialState, loop }
