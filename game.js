@@ -89,11 +89,13 @@ const generateOptions = state => {
 }
 
 const loop = (state, print) => {
+  let myState = Object.assign({}, state)
+
   // print state
-  print.printState(state)
+  print.printState(myState)
 
   // generate options
-  const options = generateOptions(state)
+  let options = generateOptions(myState)
 
   // print options
   print.printOptions(options)
@@ -110,11 +112,19 @@ const loop = (state, print) => {
     if (key === 'return') console.log('\n\n')
     options.map(o => {
       if(key === o.key) {
-        const nextState = o.action(state, o.loc)
-        loop(nextState, print)
+        myState = o.action(myState, o.loc)
+  // print state
+  print.printState(myState)
+
+  // generate options
+  options = generateOptions(myState)
+
+  // print options
+  print.printOptions(options)
       }
     })
   })
+
 }
 
 module.exports = { initialState, loop }
