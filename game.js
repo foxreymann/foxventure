@@ -17,22 +17,26 @@ const WEST  = { x:-1, y: 0 }
 
 const moves = [
   {
-    name: 'North',
+    key: 'n',
+    desc: 'North',
     x: 0,
     y: 1
   },
   {
-    name: 'South',
+    key: 's',
+    desc: 'South',
     x: 0,
     y: -1
   },
   {
-    name: 'East',
+    key: 'e',
+    desc: 'East',
     x: 1,
     y: 0
   },
   {
-    name: 'West',
+    key: 'w',
+    desc: 'West',
     x: -1,
     y: 0
   }
@@ -62,7 +66,10 @@ console.log(move)
     const roomAfterMove = state.world.rooms.filter(room => room.location.x === locAfterMove.x && room.location.y === locAfterMove.y)
 console.log(roomAfterMove)
     if(roomAfterMove.length) {
+      // add move
+      options[] = {
 
+      }
     }
   })
 
