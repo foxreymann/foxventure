@@ -8,7 +8,7 @@ const rooms = [
   {
     name: "The pub",
     desc: 'The pub is full of drunken revellers - the war against the orks has been won, and the fighting heroes have returned home',
-    location: {
+    loc: {
       x: 0,
       y: 0
     }
@@ -16,7 +16,7 @@ const rooms = [
   {
     name: "Your house",
     desc: 'Your house overlooks the Lamb and Lion pub, which makes it easy to stumble home when drunk.',
-    location: {
+    loc: {
       x: 0,
       y: 1
     }
@@ -24,7 +24,7 @@ const rooms = [
   {
     name: "room x0 y2",
     desc: 'description for room x0 y2',
-    location: {
+    loc: {
       x: 0,
       y: 2
     }
@@ -32,7 +32,7 @@ const rooms = [
   {
     name: "room x0 y3",
     desc: 'description for room x0 y3',
-    location: {
+    loc: {
       x: 0,
       y: 3
     }
@@ -41,7 +41,7 @@ const rooms = [
   {
     name: "room x1 y0",
     desc: 'description for room x1 y0',
-    location: {
+    loc: {
       x: 1,
       y: 0
     }
@@ -50,7 +50,7 @@ const rooms = [
   {
     name: "room x-1 y0",
     desc: 'description for room x-1 y0',
-    location: {
+    loc: {
       x: -1,
       y: 0
     }

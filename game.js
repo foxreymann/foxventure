@@ -1,13 +1,24 @@
 const readline = require('readline');
 
 const initialState = world => ({
-  location: {
+  loc: {
     x: 0,
     y: 0
   },
-  room: world.rooms.find(room => 0 === room.location.x && 0 === room.location.y),
+  room: world.rooms.find(room => 0 === room.loc.x && 0 === room.loc.y),
   world: world
 })
+
+const makeMove = (state, loc) => {
+  const nextState = {
+    loc: loc,
+    world: state.world
+  }
+
+  nextState.room = state.world.rooms.find(room => loc.x === room.loc.x && loc.y === room.loc.y)
+
+  return nextState
+}
 
 // Constants
 const NORTH = { x: 0, y:-1 }
@@ -46,11 +57,6 @@ const quit = () => {
   process.exit()
 }
 
-const makeMove = state => {
-
-  return state
-}
-
 const generateOptions = state => {
   const options = [
     {
@@ -63,11 +69,11 @@ const generateOptions = state => {
   // map moves and add if available
   moves.map(move => {
     const locAfterMove = {
-      x: state.location.x + move.x,
-      y: state.location.y + move.y
+      x: state.loc.x + move.x,
+      y: state.loc.y + move.y
     }
     // is there a room at locAfterMove
-    let roomAfterMove = state.world.rooms.filter(room => room.location.x === locAfterMove.x && room.location.y === locAfterMove.y)
+    let roomAfterMove = state.world.rooms.filter(room => room.loc.x === locAfterMove.x && room.loc.y === locAfterMove.y)
     if(roomAfterMove.length) {
       roomAfterMove = roomAfterMove[0]
       // add move
@@ -75,7 +81,7 @@ const generateOptions = state => {
         key: move.key,
         desc: `${move.desc}: ${roomAfterMove.name}`,
         action: makeMove,
-        location: locAfterMove
+        loc: locAfterMove
       })
     }
   })
