@@ -68,15 +68,17 @@ console.log(move)
       y: state.location.y + move.y
     }
     // is there a room at locAfterMove
-    const roomAfterMove = state.world.rooms.filter(room => room.location.x === locAfterMove.x && room.location.y === locAfterMove.y)
+    let roomAfterMove = state.world.rooms.filter(room => room.location.x === locAfterMove.x && room.location.y === locAfterMove.y)
 console.log(roomAfterMove)
     if(roomAfterMove.length) {
+      roomAfterMove = roomAfterMove[0]
       // add move
-      options.push(Object.assign({}, move, {
+      options.push({
+        key: move.key,
         desc: `${move.desc}: ${roomAfterMove.name}`,
         action: makeMove,
         location: locAfterMove
-      }))
+      })
     }
   })
 console.log(options)
