@@ -46,6 +46,11 @@ const quit = () => {
   process.exit()
 }
 
+const makeMove = state => {
+
+  return state
+}
+
 const generateOptions = state => {
   const options = [
     {
@@ -67,12 +72,14 @@ console.log(move)
 console.log(roomAfterMove)
     if(roomAfterMove.length) {
       // add move
-      options[] = {
-
-      }
+      options.push(Object.assign({}, move, {
+        desc: `${move.desc}: ${roomAfterMove.name}`,
+        action: makeMove,
+        location: locAfterMove
+      }))
     }
   })
-
+console.log(options)
   return options
 }
 
