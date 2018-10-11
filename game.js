@@ -107,9 +107,11 @@ const loop = (state, print) => {
     try {
       key = key.name.toLowerCase()
     } catch (err) {}
+    if (key === 'return') console.log('\n\n')
     options.map(o => {
       if(key === o.key) {
-        o.action(state, o.loc)
+        const nextState = o.action(state, o.loc)
+        loop(nextState, print)
       }
     })
   })
