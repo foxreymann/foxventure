@@ -38,17 +38,22 @@ const moves = [
   }
 ]
 
+const quit = () => {
+  process.exit()
+}
+
 const generateOptions = state => {
   const options = [
     {
       key: 'q',
       desc: 'Quit',
-      action: 'quit'
+      action: quit
     }
   ]
 
   // map moves and add if available
   moves.map(move => {
+console.log(move)
     const locAfterMove = {
       x: state.location.x + move.x,
       y: state.location.y + move.y
@@ -56,15 +61,12 @@ const generateOptions = state => {
     // is there a room at locAfterMove
     const roomAfterMove = state.world.rooms.filter(room => room.location.x === locAfterMove.x && room.location.y === locAfterMove.y)
 console.log(roomAfterMove)
+    if(roomAfterMove.length) {
+
+    }
   })
 
   return options
-}
-
-const actions = {
-  quit: () => {
-    process.exit()
-  }
 }
 
 const loop = (state, print) => {
@@ -88,7 +90,7 @@ const loop = (state, print) => {
     } catch (err) {}
     options.map(o => {
       if(key === o.key) {
-        actions[o.action](state)
+        o.action(state)
       }
     })
   })
