@@ -2,6 +2,7 @@ const cli = {}
 
 cli.printState = state => {
   cli.printRoom(state.room)
+  cli.printOptions(state.options)
 }
 
 cli.printRoom = room => {

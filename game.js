@@ -1,21 +1,26 @@
 const readline = require('readline');
 
-const initialState = world => ({
-  loc: {
-    x: 0,
-    y: 0
-  },
-  room: world.rooms.find(room => 0 === room.loc.x && 0 === room.loc.y),
-  world: world
-})
-
-const makeMove = (state, loc) => {
-  const nextState = {
-    loc: loc,
-    world: state.world
+const initialState = world => {
+  const state = {
+    loc: {
+      x: 0,
+      y: 0
+    },
+    room: world.rooms.find(room => 0 === room.loc.x && 0 === room.loc.y),
+    world: world
   }
 
+  state.options = generateOptions(state)
+
+  return state
+}
+
+const makeMove = (state, loc) => {
+  const nextState = {...state}
+
+  nextState.loc = loc
   nextState.room = state.world.rooms.find(room => loc.x === room.loc.x && loc.y === room.loc.y)
+  nextState.options = generateOptions(nextState)
 
   return nextState
 }
@@ -86,13 +91,7 @@ const loop = (state, print) => {
   let myState = Object.assign({}, state)
 
   // print state
-  print.printState(myState)
-
-  // generate options
-  let options = generateOptions(myState)
-
-  // print options
-  print.printOptions(options)
+  print.printState(myState);
 
   // wait for user input
   readline.emitKeypressEvents(process.stdin);
@@ -104,17 +103,11 @@ const loop = (state, print) => {
       key = key.name.toLowerCase()
     } catch (err) {}
     if (key === 'return') console.log('\n\n')
-    options.map(o => {
+    myState.options.map(o => {
       if(key === o.key) {
         myState = o.action(myState, o.loc)
         // print state
         print.printState(myState)
-
-        // generate options
-        options = generateOptions(myState)
-
-        // print options
-        print.printOptions(options)
       }
     })
   })
