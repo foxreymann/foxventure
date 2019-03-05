@@ -16,6 +16,7 @@ cli.printOptions = options => {
   options.map(o => {
     console.log(`(${o.key}) ${o.desc}`)
   })
+  console.log('\n')
 }
 
 module.exports = { cli }

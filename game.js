@@ -6,9 +6,10 @@ const initialState = world => {
       x: 0,
       y: 0
     },
-    room: world.rooms.find(room => 0 === room.loc.x && 0 === room.loc.y),
     world: world
   }
+
+  state.room = world.rooms.find(room => state.loc.x === room.loc.x && state.loc.y === room.loc.y)
 
   state.options = generateOptions(state)
 
